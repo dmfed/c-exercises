@@ -1,23 +1,28 @@
 #include <stdio.h>
+#include <string.h>
 
 
-void reverse(char s[], int l) {
-	int i, j, mid;
+void reverse(char s[]) 
+{
+	int l = strlen(s);
+	int mid = l/2;
 	char tmp; 
-	i = 0;
-	mid = (l-1)/2;
-	for (i = 0; i < mid; ++i) {
+	for (int i = 0; i < mid; ++i) 
+	{
 		tmp = s[i];
-		s[i] = s[l-2-i];
-		s[l-2-i] = tmp;
+		s[i] = s[l-1-i];
+		s[l-1-i] = tmp;
 	}
 }
 
-int main() {
-	char h[] = "olleh";
+
+int main() 
+{
+	char h[30];
+	scanf("%s", h);
+	printf("strlen(h) = %d\n", strlen(h));
 	printf("initial: %s\n", h);
-	int l = sizeof(h) / sizeof(char);
-	reverse(h, l);	
+	reverse(h);	
 	printf("reversed: %s\n", h);
 	return 0;
 }
